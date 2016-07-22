@@ -1,0 +1,50 @@
+Sub Extract()
+    On Error Resume Next
+    Set myOlApp = Outlook.Application
+    Set mynamespace = myOlApp.GetNamespace("mapi")
+
+    'open the current folder, I want to be able to name a specific folder if possible…
+
+    Set myfolder = myOlApp.ActiveExplorer.CurrentFolder
+
+    For i = 1 To myfolder.Items.Count
+    Set myitem = myfolder.Items(i)
+    msgtext = myitem.Body
+
+    'get rid of unnecessary text
+    Dim nameArray() As String
+    Dim nameArrayTwo() As String
+    Dim firstName As String
+    Dim lastName As String
+    Dim withDep As String
+    Dim firstChar As String
+    Dim address As String
+    Dim recip As Outlook.recipient
+    Dim message As Outlook.MailItem
+    Dim surveytext As String
+    
+    nameArray() = Split(msgtext)
+    firstName = nameArray(2)
+    withDep = nameArray(3)
+    lastName = Replace(withDep, vbNewLine, "")
+    lastName = Replace(lastName, "Department", "")
+    address = firstName & " " & lastName
+    surveytext = "Hello," & vbNewLine & vbNewLine & "This email regards a recently completed network request. I hope your experience through the network request was a positive one. When you have a chance, we would appreciate it if you could complete a short survey about the request to help us improve." & vbNewLine & vbNewLine & "Link to survey: https://www.surveymonkey.com/r/Q3TCY9L" & vbNewLine & vbNewLine & "Thank you!" & vbNewLine & "-End User Support Team" & vbNewLine & vbNewLine & "-----Original Network Request-----" & vbNewLine
+    'send email to recipient
+    Set mail = myOlApp.CreateItem(0)
+    
+    SendKeys "^{ENTER}"
+    With mail
+        .To = address
+        .CC = ""
+        .BCC = ""
+        .Subject = "We Appreciate Your Feedback!!"
+        .Body = surveytext & msgtext & vbNewLine
+        .Send
+    End With
+    
+    Next
+    Set myOlApp = Nothing
+    Set mail = Nothing
+    
+    End Sub
