@@ -1,9 +1,17 @@
-# Outlook-Mass-Send-Surveys
-Created this script at American Hotel Register in order to send surveys to everyone in an Outlook folder.
+## Outlook-Mass-Send-Suurvey
+##### Visual Basic script developed to parse through an outlook folder and send surveys.
 
-The email must be in this format(standard network request format) in order to send to that person:
 
-----------------------------------------------------------------
+#### Purpose
+At my first internship, one of my tasks was to send a survey for each help-desk ticket we closed during the past week. That took a ton of time (there could be upwards of 100 tickets closed every week) so I decided to make a script to do it for me!
+
+#### How it works
+- Traverse through outlook folder
+- Parse for name of employee
+- Generate employee's email address (<first letter of first name>.<last name>@americanhotel.com, e.g. s.becker@americanhotel.com)
+- Send email with link to survey
+
+#### Email format
 Associate Name: Sean Becker
 
 Department Number: 52
