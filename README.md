@@ -8,7 +8,7 @@ At my first internship, one of my tasks was to send a survey for each help-desk 
 #### How it works
 - Traverse through outlook folder
 - Parse for name of employee
-- Generate employee's email address (<first letter of first name>.<last name>@americanhotel.com, e.g. s.becker@americanhotel.com)
+- Generate employee's email address (<first letter of first name>.<last name>@company.com, e.g. s.becker@company.com)
 - Send email with link to survey
 
 #### Email format
