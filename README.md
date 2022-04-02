@@ -1,4 +1,4 @@
-## Outlook-Mass-Send-Suurvey
+## Outlook Bulk Send
 ##### Visual Basic script developed to parse through an outlook folder and send surveys.
 
 
@@ -22,4 +22,3 @@ Request Number: 160722130706
 
 Status: 
 http://notesmail/Prod/NetworkRequest.nsf/0/#####################
-
